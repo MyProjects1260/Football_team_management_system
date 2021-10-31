@@ -1,0 +1,71 @@
+<h4 style="text-align: center;"> Liste des entrainements</h4>
+<br>
+<div class="body">
+   <button class="btn btn-primary" type="button" style="float: right;" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Ajouter Entrainement
+  </button>
+  <br>
+<br>
+<br>
+  <div class="row">
+  <div class="col col-12 col-md-6 col-lg-3" *ngFor="let e of entrainements">
+  <div class="col col-12 col-md-6 col-lg-3">
+  <div class="card" style="width: 20rem;">
+    <img src={{e.image}} class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{e.nom}} </h5>
+      <p class="card-text">
+        <a  class="btn btn-primary" (click)="details(e.id)">Plus de details</a> <br>
+
+       <button class="btn btn-warning" routerLink="modifier/{{e.id}}" >Modifier </button> <br>
+
+
+       <button class="btn btn-danger" (click)="deleteentrainement(e.id)">Supprimer </button>
+
+       </p>
+
+
+    </div>
+  </div>
+  </div>
+  </div>
+
+  </div>
+
+
+  <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Details Entrainement</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form #f="ngForm" (ngSubmit)="addentrainement(f)">
+
+        <div class="">
+          <div class="">
+            <input type="text" class="form-control" placeholder="Nom" aria-label="Nom" name="nom" [(ngModel)]="entrainement.nom">
+          </div>
+
+          <br>
+
+          <div class="">
+            <input type="text" class="form-control" placeholder="Description" aria-label="Description" name="Description" [(ngModel)]="entrainement.description">
+          </div>
+          <br>
+
+          <div class="">
+            <input type="text" class="form-control" placeholder="image" aria-label="image" name="image" [(ngModel)]="entrainement.image">
+          </div>
+
+          <div class="alert alert-success" *ngIf="success"> {{success}}</div>
+
+          <br>
+        <button type="submit" class="btn btn-success">Ajouter Entrainement</button>
+      </div>
+   </form>
+
+
+

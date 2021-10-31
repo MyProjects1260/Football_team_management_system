@@ -1,0 +1,114 @@
+<h4 style="text-align: center;"> Liste des joueurs</h4>
+<br>
+<div class="body">
+   <button class="btn btn-primary" type="button" style="float: right;" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Ajouter joueur
+  </button>
+  <br>
+<br>
+<br>
+  <div class="row">
+  <div class="col col-12 col-md-6 col-lg-3" *ngFor="let j of joueurs">
+  <div class="col col-12 col-md-6 col-lg-3">
+  <div class="card" style="width: 20rem;">
+    <img src={{j.image}} class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{j.nom}} {{j.prenom}}</h5>
+      <p class="card-text">
+       Age : {{j.age}} ans <br> <br> <a  class="btn btn-primary" (click)="details(j.id)">Plus de details</a> <br>
+
+       <button class="btn btn-warning" routerLink="modifier/{{j.id}}" >Modifier </button> <br>
+
+
+       <button class="btn btn-danger" (click)="deleteplayer(j.id)">Supprimer </button>
+
+       </p>
+
+
+    </div>
+  </div>
+  </div>
+  </div>
+
+  </div>
+
+
+  <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Details joueur</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form #f="ngForm" (ngSubmit)="addjoueur(f)">
+
+        <div class="">
+          <div class="">
+            <input type="text" class="form-control" placeholder="Nom" aria-label="Nom" name="nom" [(ngModel)]="joueur.nom">
+          </div>
+
+          <br>
+
+          <div class="">
+            <input type="text" class="form-control" placeholder="Prenom" aria-label="Prenom" name="Prenom" [(ngModel)]="joueur.prenom">
+          </div>
+          <br>
+          <div class="">
+            <input type="text" class="form-control" placeholder="Age" aria-label="Age" name="age" [(ngModel)]="joueur.age">
+          </div>
+
+          <br>
+
+          <div class="">
+            <input type="text" class="form-control" placeholder="Email" aria-label="Email" name="email" [(ngModel)]="joueur.email">
+          </div>
+
+          <br>
+
+          <div class="">
+            <input type="text" class="form-control" placeholder="Poste" aria-label="Poste" name="Poste" [(ngModel)]="joueur.poste">
+          </div>
+
+          <br>
+
+          <div class="">
+            <input type="text" class="form-control" placeholder="Num_maillot" aria-label="Num_maillot" name="Num_maillot" [(ngModel)]="joueur.num_maillot">
+          </div>
+
+          <br>
+          <div class="">
+            <input type="text" class="form-control" placeholder="Nb_match" aria-label="Nb_match" name="Nb_match" [(ngModel)]="joueur.nb_match">
+          </div>
+
+          <br>
+          <div class="">
+            <input type="text" class="form-control" placeholder="Nb_buts_marques" aria-label="Nb_but_marque" name="Nb_but_marque" [(ngModel)]="joueur.nb_but_marque">
+          </div>
+
+          <br>
+          <div class="">
+            <input type="text" class="form-control" placeholder="Nb_passes_dec" aria-label="Nb_passe_dec" name="Nb_passe_dec" [(ngModel)]="joueur.nb_passe_dec">
+          </div>
+
+          <br>
+          <div class="">
+            <input type="text" class="form-control" placeholder="nb_buts_concede" aria-label="nb_buts_concede" name="nb_buts_concede" [(ngModel)]="joueur.nb_but_concede">
+          </div>
+
+          <br>
+
+          <div class="">
+            <input type="text" class="form-control" placeholder="image" aria-label="image" name="image" [(ngModel)]="joueur.image">
+          </div>
+
+          <div class="alert alert-success" *ngIf="success"> {{success}}</div>
+
+          <br>
+        <button type="submit" class="btn btn-success">Ajouter joueur</button>
+      </div>
+   </form>
+
+
+

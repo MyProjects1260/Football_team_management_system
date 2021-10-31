@@ -1,0 +1,69 @@
+<div class="container">   <div class="row">
+
+<form #f="ngForm" (ngSubmit)="updatejoueur()">
+
+  <div class="">
+    <div class="">
+    Nom:  <input type="text" class="form-control" placeholder="Nom" aria-label="Nom" name="nom" [(ngModel)]="joueur.nom">
+    </div>
+
+    <br>
+
+    <div class="">
+     Prenom : <input type="text" class="form-control" placeholder="Prenom" aria-label="Prenom" name="Prenom" [(ngModel)]="joueur.prenom">
+    </div>
+    <br>
+    <div class="">
+     Age : <input type="text" class="form-control" placeholder="Age" aria-label="Age" name="age" [(ngModel)]="joueur.age">
+    </div>
+
+    <br>
+
+    <div class="">
+    Email :  <input type="text" class="form-control" placeholder="Email" aria-label="Email" name="email" [(ngModel)]="joueur.email">
+    </div>
+
+    <br>
+
+    <div class="">
+    Poste :  <input type="text" class="form-control" placeholder="Poste" aria-label="Poste" name="Poste" [(ngModel)]="joueur.poste">
+    </div>
+
+    <br>
+
+    <div class="">
+    Num_maillot :  <input type="text" class="form-control" placeholder="Num_maillot" aria-label="Num_maillot" name="Num_maillot" [(ngModel)]="joueur.num_maillot">
+    </div>
+
+    <br>
+    <div class="">
+    Nombre de matchs joués :  <input type="text" class="form-control" placeholder="Nb_match" aria-label="Nb_match" name="Nb_match" [(ngModel)]="joueur.nb_match">
+    </div>
+
+    <br>
+    <div class="">
+     Nombre de buts marqués : <input type="text" class="form-control" placeholder="Nb_buts_marques" aria-label="Nb_but_marque" name="Nb_but_marque" [(ngModel)]="joueur.nb_but_marque">
+    </div>
+
+    <br>
+    <div class="">
+    Nombre de passes decisives :  <input type="text" class="form-control" placeholder="Nb_passes_dec" aria-label="Nb_passe_dec" name="Nb_passe_dec" [(ngModel)]="joueur.nb_passe_dec">
+    </div>
+
+    <br>
+    <div class="">
+    Nombre de buts concédés :  <input type="text" class="form-control" placeholder="nb_buts_concede" aria-label="nb_buts_concede" name="nb_buts_concede" [(ngModel)]="joueur.nb_but_concede">
+    </div>
+
+    <br>
+
+    <div class="">
+    Photo :   <input type="text" class="form-control" placeholder="image" aria-label="image" name="image" [(ngModel)]="joueur.image">
+    </div>
+
+    <div class="alert alert-success" *ngIf="success"> {{success}}</div>
+
+    <br>
+  <button type="submit" class="btn btn-success">Modifier joueur</button>
+</div>
+</form>
